@@ -3,6 +3,13 @@
  * Template Name: React Template
  */
     get_header();
+    wp_enqueue_script(
+        'my-theme-frontend',
+        get_stylesheet_directory_uri() . '/build/main.js',
+        ['wp-element'],
+        time(), // Change this to null for production
+        true
+      )
 ?>
 
 <main id="site-content" role="main">
@@ -10,7 +17,7 @@
 		<?php get_template_part( 'template-parts/entry-header' ); ?>
 		<div class="post-inner thin">
 			<div class="entry-content">				
-
+TEST
 				<div id="react-app"></div><!-- #react-app -->
 
 			</div><!-- .entry-content -->
