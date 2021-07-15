@@ -1,17 +1,29 @@
-<?php 
+<?php
 /**
- * Template Name: Form template
- * Template Post Type: post, page
- *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * Template Name: React Template
  */
-get_header();
+    get_header();
+    wp_enqueue_script(
+        'my-theme-frontend',
+        get_stylesheet_directory_uri() . '/build/main.js',
+        ['wp-element'],
+        time(), // Change this to null for production
+        true
+      )
 ?>
 
-<div>TEST FORMA</div>
+<main id="site-content" role="main">
+	<article class="post-2 page type-page status-publish hentry">
+		<?php get_template_part( 'template-parts/entry-header' ); ?>
+		<div class="post-inner thin">
+			<div class="entry-content">				
+TEST
+				<div id="react-app"></div><!-- #react-app -->
 
-<?php 
-get_footer();
-?>
+			</div><!-- .entry-content -->
+		</div><!-- .post-inner -->
+	</article><!-- .post -->
+</main><!-- #site-content -->
+
+<?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
+<?php get_footer(); ?>
